@@ -3,15 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		6A89A166659829790220A998 /* Pods_SberbankConcept.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 578DC0691648B74F050965FC /* Pods_SberbankConcept.framework */; };
 		F1C571D8250E2B4500742B24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C571D7250E2B4500742B24 /* AppDelegate.swift */; };
-		F1C571DC250E2B4500742B24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C571DB250E2B4500742B24 /* ViewController.swift */; };
+		F1C571DC250E2B4500742B24 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C571DB250E2B4500742B24 /* MainViewController.swift */; };
 		F1C571E1250E2B4800742B24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1C571E0250E2B4800742B24 /* Assets.xcassets */; };
 		F1C571E4250E2B4800742B24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C571E2250E2B4800742B24 /* LaunchScreen.storyboard */; };
+		F1C571EC250E3D6100742B24 /* MainColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1C571EB250E3D6100742B24 /* MainColors.xcassets */; };
+		F1C571EE250E403900742B24 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C571ED250E403900742B24 /* GradientView.swift */; };
+		F1C571F2250E423200742B24 /* PanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C571F1250E423200742B24 /* PanelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +23,13 @@
 		C2432023589194A17C990531 /* Pods-SberbankConcept.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SberbankConcept.release.xcconfig"; path = "Target Support Files/Pods-SberbankConcept/Pods-SberbankConcept.release.xcconfig"; sourceTree = "<group>"; };
 		F1C571D4250E2B4500742B24 /* SberbankConcept.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SberbankConcept.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1C571D7250E2B4500742B24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F1C571DB250E2B4500742B24 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F1C571DB250E2B4500742B24 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F1C571E0250E2B4800742B24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1C571E3250E2B4800742B24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1C571E5250E2B4800742B24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1C571EB250E3D6100742B24 /* MainColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MainColors.xcassets; sourceTree = "<group>"; };
+		F1C571ED250E403900742B24 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		F1C571F1250E423200742B24 /* PanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +58,6 @@
 				32B1646F9DC7D656A266A8CF /* Pods-SberbankConcept.debug.xcconfig */,
 				C2432023589194A17C990531 /* Pods-SberbankConcept.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -78,12 +83,31 @@
 			isa = PBXGroup;
 			children = (
 				F1C571D7250E2B4500742B24 /* AppDelegate.swift */,
-				F1C571DB250E2B4500742B24 /* ViewController.swift */,
+				F1C571EF250E421500742B24 /* Main */,
 				F1C571E0250E2B4800742B24 /* Assets.xcassets */,
 				F1C571E2250E2B4800742B24 /* LaunchScreen.storyboard */,
 				F1C571E5250E2B4800742B24 /* Info.plist */,
+				F1C571EB250E3D6100742B24 /* MainColors.xcassets */,
 			);
 			path = SberbankConcept;
+			sourceTree = "<group>";
+		};
+		F1C571EF250E421500742B24 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F1C571F0250E422000742B24 /* Views */,
+				F1C571DB250E2B4500742B24 /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F1C571F0250E422000742B24 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F1C571ED250E403900742B24 /* GradientView.swift */,
+				F1C571F1250E423200742B24 /* PanelView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +170,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1C571EC250E3D6100742B24 /* MainColors.xcassets in Resources */,
 				F1C571E4250E2B4800742B24 /* LaunchScreen.storyboard in Resources */,
 				F1C571E1250E2B4800742B24 /* Assets.xcassets in Resources */,
 			);
@@ -200,8 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1C571DC250E2B4500742B24 /* ViewController.swift in Sources */,
+				F1C571DC250E2B4500742B24 /* MainViewController.swift in Sources */,
+				F1C571F2250E423200742B24 /* PanelView.swift in Sources */,
 				F1C571D8250E2B4500742B24 /* AppDelegate.swift in Sources */,
+				F1C571EE250E403900742B24 /* GradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
