@@ -87,14 +87,11 @@ final class PanelView: UIView {
         case .began:
             startPoint = pan.location(in: self.superview)
         case .changed:
-            print(translation)
             frame.origin.y = frame.origin.y + translation.y
-            print("y: ", translation.y)
         case .ended:
             endPoint = pan.location(in: self.superview)
             let delta = startPoint.y - endPoint.y
             direction = delta > 0 ? VerticalDirection.up : VerticalDirection.down
-            print("start: \(startPoint) end: \(endPoint) delta: \(direction)")
             
             switch (direction, state) {
             case (.up, .closed):

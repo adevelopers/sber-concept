@@ -88,7 +88,6 @@ extension MainViewController: UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: CardCell.identifier) {
             
             
-            
             return cell
         }
         
