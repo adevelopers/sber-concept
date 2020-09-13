@@ -26,6 +26,8 @@ final class PanelView: UIView {
     
     private var state: PanelViewState = .closed
     
+    private var contentView: UIView
+    
     private lazy var shieldik: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(named: "mainGrey")
@@ -33,8 +35,9 @@ final class PanelView: UIView {
         return view
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(contentView: UIView) {
+        self.contentView = contentView
+        super.init(frame: .zero)
         setupUI()
         setupPan()
     }
@@ -48,12 +51,22 @@ final class PanelView: UIView {
         layer.cornerRadius = 16
         layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
+        contentView
+            .add(to: self)
+            .top(to: \.topAnchor, constant: 48)
+            .left(to: \.leftAnchor)
+            .right(to: \.rightAnchor)
+            .bottom(to: \.bottomAnchor)
+        
+        
         shieldik
             .add(to: self)
             .centerX(to: \.centerXAnchor)
             .top(to: \.topAnchor, constant: 8)
             .width(100)
             .height(4)
+        
+        
     }
     
     
@@ -103,7 +116,7 @@ final class PanelView: UIView {
     private func animatedOpen() {
         guard state == .closed else { return }
         UIView.animate(withDuration: animationDuration, animations: {
-            self.frame.origin.y = 0
+            self.frame.origin.y = 16
         }, completion: { _ in
             self.state = .opened
         })
