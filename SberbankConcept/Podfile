@@ -1,0 +1,12 @@
+platform :ios, '11.0'
+
+target 'SberbankConcept' do
+
+  use_frameworks!
+
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Swinject'
+  pod 'VanillaConstraints' 
+
+end
