@@ -113,7 +113,7 @@ final class PanelView: UIView {
     private func animatedOpen() {
         guard state == .closed else { return }
         UIView.animate(withDuration: animationDuration, animations: {
-            self.frame.origin.y = 16
+            self.frame.origin.y = 64
         }, completion: { _ in
             self.state = .opened
         })
