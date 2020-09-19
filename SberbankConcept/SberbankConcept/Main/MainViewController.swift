@@ -16,6 +16,10 @@ class MainViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
     
+    private lazy var sectionHeaderView: CollapsableSectionHeaderView = {
+        CollapsableSectionHeaderView()
+    }()
+    
     private lazy var backView: GradientView = {
         let view = GradientView()
         view.backgroundColor = .red
@@ -47,7 +51,7 @@ class MainViewController: UIViewController {
     }()
     
     private lazy var cardsTableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .plain)
+        let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
         tableView.register(CardCell.self, forCellReuseIdentifier: CardCell.identifier)
@@ -104,9 +108,14 @@ class MainViewController: UIViewController {
             .right(to: \.rightAnchor)
             .height(UIScreen.main.bounds.height)
         
-        viewModel.loadData()
+        setupSubscriptions()
         
-        viewModel.cells
+        viewModel.loadData()
+    }
+    
+    private func setupSubscriptions() {
+        
+        viewModel.sections
             .subscribe(onNext: { _ in
                 self.cardsTableView.reloadData()
             })
@@ -117,26 +126,67 @@ class MainViewController: UIViewController {
                 self.collectionView.reloadData()
             })
             .disposed(by: disposeBag)
+        
+        sectionHeaderView.rx.controlEvent(.touchDown)
+            .bind(to: viewModel.didTapCards)
+            .disposed(by: disposeBag)
+            
+        viewModel.didTapCards.subscribe(onNext: { _ in
+                self.cardsTableView.reloadData()
+            })
+            .disposed(by: disposeBag)
     }
-
 
 }
 
 extension MainViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.sections.value.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.cells.value.count
+        let sectionModel = viewModel.sections.value[section]
+        switch sectionModel {
+        case let .cards(_, cells):
+            return viewModel.collapsableSectionState == .opened ? cells.count : 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = viewModel.cells.value[indexPath.row]
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: CardCell.identifier) as? CardCell {
-            cell.set(model)
-            return cell
+        let sectionModel = viewModel.sections.value[indexPath.section]
+        switch sectionModel {
+        case let .cards(_, cells):
+            if let cell = tableView.dequeueReusableCell(withIdentifier: CardCell.identifier) as? CardCell {
+                let model = cells[indexPath.row]
+                cell.set(model)
+                return cell
+            }
         }
         
         return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let sectionModel = viewModel.sections.value[section]
+        switch sectionModel {
+        case let .cards(title, _):
+            return title
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionModel = viewModel.sections.value[section]
+        switch sectionModel {
+        case let .cards(title, _):
+            (sectionHeaderView.subviews[0] as? UILabel)?.text = title
+            return sectionHeaderView
+        }
+    }
+    
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return viewModel.collapsableSectionState == .opened ? 30 : 0
+//    }
     
 }
 

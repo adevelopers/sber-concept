@@ -20,6 +20,7 @@
 		F1C571F8250E67EF00742B24 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C571F7250E67EF00742B24 /* CardCell.swift */; };
 		F1C571FA250E689100742B24 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C571F9250E689100742B24 /* Reusable.swift */; };
 		F1C571FC250E6D9100742B24 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C571FB250E6D9100742B24 /* MainViewModel.swift */; };
+		F1EB3320251603B500E981FC /* CollapsableSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB331F251603B500E981FC /* CollapsableSectionHeader.swift */; };
 		FAA122E22511082C0037D9B2 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA122E12511082C0037D9B2 /* NavigationView.swift */; };
 		FAA122E4251128DC0037D9B2 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA122E3251128DC0037D9B2 /* TextField.swift */; };
 		FAA122E725112FC70037D9B2 /* StoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA122E625112FC70037D9B2 /* StoryItem.swift */; };
@@ -45,6 +46,7 @@
 		F1C571F7250E67EF00742B24 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		F1C571F9250E689100742B24 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		F1C571FB250E6D9100742B24 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		F1EB331F251603B500E981FC /* CollapsableSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsableSectionHeader.swift; sourceTree = "<group>"; };
 		FAA122E12511082C0037D9B2 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		FAA122E3251128DC0037D9B2 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		FAA122E625112FC70037D9B2 /* StoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryItem.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				F1C571F1250E423200742B24 /* PanelView.swift */,
 				FAA122E12511082C0037D9B2 /* NavigationView.swift */,
 				FAA122E3251128DC0037D9B2 /* TextField.swift */,
+				F1EB331F251603B500E981FC /* CollapsableSectionHeader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				F1C571DC250E2B4500742B24 /* MainViewController.swift in Sources */,
 				F1C571F2250E423200742B24 /* PanelView.swift in Sources */,
 				FAA122E4251128DC0037D9B2 /* TextField.swift in Sources */,
+				F1EB3320251603B500E981FC /* CollapsableSectionHeader.swift in Sources */,
 				F1C571D8250E2B4500742B24 /* AppDelegate.swift in Sources */,
 				FAA122EA251133550037D9B2 /* StoryCell.swift in Sources */,
 				F1C571EE250E403900742B24 /* GradientView.swift in Sources */,
